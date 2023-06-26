@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Comic Book Library</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: ivory;
+            color: #000000;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #FF0000;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background-color: #FFD700;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #FF0000;
+            color: #FFFFFF;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card-body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .card-image {
+            max-width: 300px;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .publication-year {
+            color: #00FF00;
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: #FF0000;
+            color: #FFFFFF;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+            .btn:hover {
+                background-color: #FF6600;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Comic Book Library</h1>
+
+        @foreach (var comicBook in Model)
+        {
+            <div class="card mb-4">
+                <div class="card-header">
+                    @comicBook.Title
+                </div>
+                <div class="card-body">
+                    <img src="@comicBook.Cover" alt="Comic Book Cover" class="card-image">
+                    <h5 class="card-title">
+                        Publication Year: <span class="publication-year" style="color: #00FF00;">@comicBook.PublicationYear</span>
+                    </h5>
+                    <a href="https://thecomicbookstore.in" target="_blank" class="btn">Read More</a>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
